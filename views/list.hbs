@@ -1,0 +1,23 @@
+<h1>list cars page</h1>
+<hr>
+<table>
+    <tr>
+        <th>_id</th>
+        <th>model</th>
+        <th>ubezpieczony</th>
+        <th>benzyna</th>
+        <th>uszkodzony</th>
+        <th>naped4x4</th>
+    </tr>
+    {{#each cars}}
+    <tr>
+        <td>{{_id}}</td>
+        <td>{{model}}</td>
+        <td>{{ubezpieczony}}</td>
+        <td>{{benzyna}}</td>
+        <td>{{uszkodzony}}</td>
+        <td>{{naped}}</td>
+        <td><button onclick="return alert('id: {{_id}}\nmodel: {{model}}\nubezpieczony: {{ubezpieczony}}\nbenzyna: {{benzyna}}\nuszkodzony: {{uszkodzony}}\nnapede4x4: {{naped}}')">INFO</button></td>
+    </tr>
+    {{/each}}
+</table>

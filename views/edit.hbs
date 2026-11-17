@@ -1,0 +1,74 @@
+<h1>edit cars page</h1>
+<hr />
+<form>
+	<table>
+		<tr>
+			<th>_id</th>
+			<th>model</th>
+			<th>ubezpieczony</th>
+			<th>benzyna</th>
+			<th>uszkodzony</th>
+			<th>naped4x4</th>
+		</tr>
+		{{#each cars}}
+			{{#if editing}}
+				<tr>
+					<td>{{_id}}</td>
+					<td><input
+							type="text"
+							value="{{model}}"
+							name="model"
+						/></td>
+					<td><select name="ub">
+							<option value="TAK" {{#if (equals ubezpieczony "TAK")}} selected {{/if}}>TAK</option>
+							<option value="NIE" {{#if (equals ubezpieczony "NIE")}} selected {{/if}}>NIE</option>
+						</select></td>
+					<td><select name="benz">
+							<option value="TAK" {{#if (equals benzyna "TAK")}} selected {{/if}}>TAK</option>
+							<option value="NIE" {{#if (equals benzyna "NIE")}} selected {{/if}}>NIE</option>
+						</select></td>
+					<td><select name="usz">
+							<option value="TAK" {{#if (equals uszkodzony "TAK")}} selected {{/if}}>TAK</option>
+							<option value="NIE" {{#if (equals uszkodzony "NIE")}} selected {{/if}}>NIE</option>
+						</select></td>
+					<td><select name="naped">
+							<option value="TAK" {{#if (equals naped "TAK")}} selected {{/if}}>TAK</option>
+							<option value="NIE" {{#if (equals naped "NIE")}} selected {{/if}}>NIE</option>
+						</select></td>
+					<td class="action-buttons"><button
+							formaction="/update"
+							formmethod="post"
+							type="submit"
+							value="{{_id}}"
+							name="id"
+							onclick="return confirm('Czy na pewno?')"
+						>UPDATE</button>
+						<button
+							formaction="/editCars"
+							formmethod="get"
+							type="submit"
+							value="{{_id}}"
+							name="id"
+							class="btn-cancel"
+						>CANCEL</button></td>
+				</tr>
+			{{else}}
+				<tr>
+					<td>{{_id}}</td>
+					<td>{{model}}</td>
+					<td>{{ubezpieczony}}</td>
+					<td>{{benzyna}}</td>
+					<td>{{uszkodzony}}</td>
+					<td>{{naped}}</td>
+					<td><button
+							formaction="/edit"
+							formmethod="get"
+							type="submit"
+							value="{{_id}}"
+							name="id"
+						>EDIT</button></td>
+				</tr>
+			{{/if}}
+		{{/each}}
+	</table>
+</form>

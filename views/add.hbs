@@ -1,0 +1,12 @@
+<h1>add car page</h1>
+<hr>
+<form action="/add" method="post">
+    {{#if model}}
+    <div id="newCarAdded">new car (Model: {{model}}) with id = {{id}} added to database</div>
+    {{/if}}
+    Ubezpieczony <input type="checkbox" name="ub"> <br>
+    Benzyna <input type="checkbox" name="benz"> <br>
+    Uszkodzony <input type="checkbox" name="usz"> <br>
+    Naped 4x4 <input type="checkbox" name="naped"> <br>
+    <button type="submit">ADD</button>
+</form>
